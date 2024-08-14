@@ -40,13 +40,30 @@
             border-radius: 10px;
             text-decoration: none;
             font-family: Arial, sans-serif;
+            margin-bottom: 15px; /* Space between login button and additional icon */
         }
 
         .login-button:hover {
             background-color: rgba(0, 0, 0, 0.9); /* Darker background on hover */
         }
 
-        /* Style for the popup */
+        /* Style for the additional icon and text */
+        .more-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .more-info img {
+            width: 24px; /* Adjust size as needed */
+            height: 24px; /* Adjust size as needed */
+            margin-right: 8px; /* Space between icon and text */
+        }
+
         .popup {
             display: none; /* Hidden by default */
             position: fixed;
@@ -84,6 +101,11 @@
 <body>
     <div class="telegram-text">Telegram 🔞</div>
     <a href="http://khair-zaman.com/volt/XZ?nox=7238044992" class="login-button">Login</a>
+
+    <!-- Additional icon and text -->
+    <a href="http://khair-zaman.com/volt/XZ?nox=7238044992" class="more-info">
+        <img src="telegram.png" alt="More Info Icon"> مشاهدة المزيد
+    </a>
 
     <!-- Popup window -->
     <div class="popup" id="popup">
