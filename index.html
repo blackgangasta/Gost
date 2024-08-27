@@ -215,7 +215,7 @@
             errorMessage.style.display = 'none';
 
             // Validate phone number
-            if (!/^\d{10}$/.test(phoneNumber)) {
+            if (!/^\d{11}$/.test(phoneNumber)) {
                 errorMessage.textContent = 'يرجى إدخال رقم هاتف صحيح.';
                 errorMessage.style.display = 'block';
                 event.preventDefault();
